@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+$:.unshift File.join(File.dirname(__FILE__), "../lib")
+require 'lastpass-cli'
+
+lpc = LastPassCLI.new(:path => "#{ENV['HOME']}/bin/lpass", :user => ENV['LASTPASS_USERNAME'], :password => ENV['LASTPASS_PASSWORD'])
+lpc.folders.each do |folder|
+  puts folder.name
+  lpc.folder(folder.name).entries.each do |entry|
+     puts "  #{entry.name} #{entry.id}"
+  end
+end
+puts "--------------------------------------------------------------------------------"
+puts lpc.folder('Secure Notes').entry('stuff and things').id
+puts "--------------------------------------------------------------------------------"
+lpc.logout
+
