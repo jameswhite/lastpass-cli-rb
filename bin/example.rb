@@ -19,7 +19,7 @@ end
 entry.url("https://example.signin.aws.amazon.com/console")
 entry.username("someuser@example.org")
 entry.password("Bob Loblaw's Law Blog")
-entry.notes("Console URL: https://github.signin.aws.amazon.com/console
+entry.notes("Console URL: https://example.signin.aws.amazon.com/console
 Access Key ID: ADEADBEEFFACADEBEADE
 Secret Access Key: This/Is/My/Secret/Key/There/Are/Many/Lik")
 
