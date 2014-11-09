@@ -202,11 +202,17 @@ class LastPassEntry
     else
       key_arg = "--field=#{key}"
     end
-    pid, input, output, errors = popen4( Shellwords.join([ @folder.cli.path, 'edit', "#{key_arg}", "--non-interactive", "--sync=now",  @id ]) )
+    pid, input, output, errors = popen4( Shellwords.join([ @folder.cli.path, 'edit', "#{key_arg}", "--non-interactive", @id ]) )
     input.write("#{data}\n")
     input.close
     document = output.read
     return document
+  end
+
+  def sync
+    pid, input, output, errors = popen4( Shellwords.join([ @folder.cli.path, 'sync' ]) )
+    input.close
+    document = output.read
   end
 
   def delete
